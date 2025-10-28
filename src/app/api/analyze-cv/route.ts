@@ -297,7 +297,7 @@ function extractSkills(text: string): string[] {
     }
 
     // Remove bullet points and common prefixes
-    let cleanLine = trimmedLine
+    const cleanLine = trimmedLine
       .replace(/^[•\-\*\+]\s*/, "")
       .replace(/^skills?[:\-]?\s*/i, "")
       .replace(/^technologies?[:\-]?\s*/i, "")
@@ -338,7 +338,12 @@ function extractExperience(text: string): Array<{
   }> = [];
 
   const lines = text.split("\n");
-  let currentJob: any = null;
+  let currentJob: {
+    title: string;
+    company: string;
+    duration: string;
+    description: string;
+  } | null = null;
   let descriptionLines: string[] = [];
 
   for (let i = 0; i < lines.length; i++) {
@@ -486,7 +491,11 @@ function extractEducation(
   }> = [];
 
   const lines = text.split("\n");
-  let currentEdu: any = null;
+  let currentEdu: {
+    degree: string;
+    institution: string;
+    year: string;
+  } | null = null;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();

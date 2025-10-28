@@ -2,7 +2,7 @@
 
 import React, { useEffect, ReactNode, PropsWithChildren } from "react";
 
-export default function ClientBody({ children }: PropsWithChildren<{}>) {
+export default function ClientBody({ children }: PropsWithChildren) {
   // Remove any extension-added classes during hydration
   useEffect(() => {
     // This runs only on the client after hydration
