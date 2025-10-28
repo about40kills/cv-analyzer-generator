@@ -9,7 +9,8 @@ import { FileUpload } from "@/components/file-upload";
 import { CVAnalysis } from "@/components/cv-analysis";
 import { TemplateSelector } from "@/components/template-selector";
 import { CVForm } from "@/components/cv-form";
-import { Upload, FileText, Palette, Download, Github } from "lucide-react";
+import { Upload, FileText, Palette, Download } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 interface CVData {
   personalInfo: {
@@ -61,8 +62,8 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-7xl">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 max-w-7xl flex-1 flex flex-col">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8 px-2">
           <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-slate-800 mb-2">
@@ -101,7 +102,7 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex-1 flex flex-col">
           <TabsList className="grid w-full grid-cols-4 h-auto">
             <TabsTrigger value="upload" className="text-sm px-3 py-2">
               <span className="hidden sm:inline">Upload CV</span>
@@ -165,17 +166,17 @@ export default function Home() {
         </Tabs>
 
         {/* Footer */}
-        <footer className="mt-12 md:mt-16 py-6 border-t border-slate-200">
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 text-slate-600 px-4">
+        <footer className="mt-auto pt-12 md:pt-16 pb-6 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-slate-600 px-4">
             <p className="text-xs sm:text-sm text-center">© 2025 Smart CV Analyzer & Generator</p>
             <a
               href="https://github.com/about40kills"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-slate-900 transition-colors"
+              className="hover:text-slate-900 transition-colors flex items-center gap-2"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5" />
+              <FaGithub className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
         </footer>
